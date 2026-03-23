@@ -229,3 +229,5 @@ Read these only when needed:
 - `references/workflow-patterns.md` for reusable analysis and review templates
 - `references/project-review-rubric.md` for a structured system-review checklist
 - `references/output-patterns.md` for response and presentation templates
+- `references/join-safety.md` when merge, join, or cross-table alignment safety matters
+- `references/metric-definition.md` when KPI definitions or derived metrics drive the answer

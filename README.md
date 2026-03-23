@@ -13,12 +13,16 @@ A reusable AgentSkill for professional tabular-data analysis and for reviewing t
 
 It focuses on workflow, judgment, and output quality rather than teaching pandas syntax.
 
-## Included files
+## Repository structure
 
 - `SKILL.md` — core skill instructions
 - `references/workflow-patterns.md` — reusable analysis and review patterns
 - `references/project-review-rubric.md` — checklist for evaluating table-analysis systems
 - `references/output-patterns.md` — response and presentation templates
+- `references/join-safety.md` — safe merge/join guidance
+- `references/metric-definition.md` — KPI and derived-metric guidance
+- `PUBLISHING.md` — release and packaging notes
+- `CHANGELOG.md` — release history
 
 ## Use this skill when the task involves
 
@@ -37,9 +41,10 @@ It focuses on workflow, judgment, and output quality rather than teaching pandas
 - clarify when ambiguity matters
 - plan before multi-step execution
 - verify join keys and grain before merging
+- define metrics before computing or comparing them
 - prefer structured operations before custom code
 - present results with evidence and caveats
 
-## Status
+## Release status
 
-Early but usable draft. Intended to improve through real project reviews and table-analysis tasks.
+`v0.1.0` candidate — documentation-first, publishable draft.
