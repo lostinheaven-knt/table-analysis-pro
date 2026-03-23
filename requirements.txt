@@ -1,0 +1,2 @@
+# This skill is documentation-first and has no required runtime dependencies.
+# Add entries here only if scripts are introduced later.
