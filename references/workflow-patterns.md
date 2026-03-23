@@ -10,8 +10,9 @@ Use when the user asks for a general understanding of one dataset.
 1. Inspect schema and sample rows
 2. Identify numeric / categorical / temporal columns
 3. Check missingness and obvious anomalies
-4. Summarize what the table appears to represent
-5. Suggest useful next analyses if appropriate
+4. Infer likely table grain
+5. Summarize what the dataset appears to represent
+6. Suggest useful next analyses when helpful
 
 ### Output focus
 - what the dataset contains
@@ -28,7 +29,7 @@ Use when the user wants specific rows, entities, or conditions.
 ### Steps
 1. Confirm target table and filter condition
 2. Validate relevant columns and value forms
-3. Apply filter or exact/regex match
+3. Apply exact match, condition, or regex match
 4. Report row count and representative matches
 5. Note ambiguities if matching is fuzzy
 
@@ -70,9 +71,9 @@ Use when the user needs a new column or KPI such as margin, conversion rate, ARP
 1. Define the formula explicitly
 2. Check source columns and types
 3. Handle divide-by-zero / nulls
-4. Create derived metric
+4. Create the derived metric
 5. Aggregate or compare if needed
-6. Validate with a few spot checks
+6. Validate with spot checks
 
 ### Watch for
 - unit mismatch
@@ -88,9 +89,9 @@ Use when the user wants a matrix view by dimensions.
 ### Steps
 1. Confirm index, columns, values, and agg function
 2. Inspect data types and category values
-3. Build pivot
+3. Build the pivot
 4. Check for sparsity or extreme skew
-5. Summarize main patterns
+5. Summarize the dominant patterns
 
 ### Good use cases
 - sales by region x quarter
@@ -127,16 +128,16 @@ Use when the user wants differences, similarities, side-by-side metrics, or per-
 
 ### Steps
 1. Inspect each table separately
-2. Standardize comparable fields/metrics
+2. Standardize comparable fields or metrics
 3. Compute per-table findings
-4. Synthesize common and differing patterns
-5. Mark uncertainty where definitions or coverage differ
+4. Synthesize shared and differing patterns
+5. Mark uncertainty where definitions, grain, or coverage differ
 
 ### Good output pattern
 - shared observations
 - key differences
 - likely causes
-- uncertainties / comparability limits
+- comparability limits
 
 ---
 
@@ -150,7 +151,7 @@ Use when the user suspects bad data, outliers, duplicates, or broken records.
 3. Check duplicates / key integrity
 4. Check impossible or suspicious values
 5. Quantify the problem
-6. Suggest remediation or exclusions
+6. Suggest remediation or exclusion logic
 
 ### Common checks
 - null spikes
@@ -167,7 +168,7 @@ Use when the user wants to study a project rather than compute data results.
 
 ### Steps
 1. Identify the project’s goal and target user
-2. Inspect architecture and main execution loop
+2. Inspect architecture and the main execution loop
 3. Review data ingestion and schema handling
 4. Review planning / clarification / execution design
 5. Review tool abstractions and sandboxing

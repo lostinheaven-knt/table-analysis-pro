@@ -101,11 +101,11 @@ Short final assessment.
 
 Use these when the evidence is incomplete:
 
-- “Based on the available columns and sample values...”
-- “This conclusion is directionally strong, but depends on the assumption that...”
-- “These tables are not perfectly comparable because...”
-- “The merge appears to create duplication risk due to...”
-- “I can give a stricter answer after confirming...”
+- "Based on the available columns and sample values..."
+- "This conclusion is directionally strong, but depends on the assumption that..."
+- "These tables are not perfectly comparable because..."
+- "The merge appears to create duplication risk due to..."
+- "I can give a stricter answer after confirming..."
 
 Avoid fake certainty when:
 - metric definitions are unclear

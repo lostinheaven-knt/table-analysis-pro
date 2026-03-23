@@ -2,13 +2,13 @@
 
 A reusable AgentSkill for professional tabular-data analysis and for reviewing table-analysis agent projects.
 
-## What it is
+## What it does
 
-`table-analysis-pro` captures a practical workflow for:
+`table-analysis-pro` captures a disciplined workflow for:
 
 - analyzing CSV / Excel / DataFrame-style tabular data
 - handling single-table and multi-table tasks safely
-- reviewing projects like table-analysis agents, data copilots, or spreadsheet-focused AI tools
+- reviewing table-analysis agents, data copilots, and spreadsheet-oriented AI tools
 - extracting reusable patterns from table-analysis systems
 
 It focuses on workflow, judgment, and output quality rather than teaching pandas syntax.
@@ -16,13 +16,11 @@ It focuses on workflow, judgment, and output quality rather than teaching pandas
 ## Included files
 
 - `SKILL.md` — core skill instructions
-- `references/workflow-patterns.md` — common analysis flow templates
-- `references/project-review-rubric.md` — structured review checklist for table-analysis systems
+- `references/workflow-patterns.md` — reusable analysis and review patterns
+- `references/project-review-rubric.md` — checklist for evaluating table-analysis systems
 - `references/output-patterns.md` — response and presentation templates
 
-## Usage intent
-
-Use this skill when the task involves:
+## Use this skill when the task involves
 
 - schema inspection
 - filtering / lookup
@@ -31,9 +29,9 @@ Use this skill when the task involves:
 - pivoting / crosstabs
 - merging or comparing tables
 - anomaly or data-quality checks
-- reviewing the workflow of a table-analysis project
+- reviewing a table-analysis workflow or project
 
-## Design principles
+## Working principles
 
 - inspect before concluding
 - clarify when ambiguity matters
@@ -44,4 +42,4 @@ Use this skill when the task involves:
 
 ## Status
 
-Initial draft. Expected to evolve through real usage and project reviews.
+Early but usable draft. Intended to improve through real project reviews and table-analysis tasks.
