@@ -61,8 +61,13 @@ If you want to inspect or adapt the skill before packaging, start with:
 - `references/output-patterns.md` — response and presentation templates
 - `references/join-safety.md` — safe merge/join guidance
 - `references/metric-definition.md` — KPI and derived-metric guidance
+- `references/related-projects.md` — external comparison points and inspiration
 - `PUBLISHING.md` — release and packaging notes
 - `CHANGELOG.md` — release history
+
+## Related project reference
+
+- [`fishsure/TabClaw`](https://github.com/fishsure/TabClaw) — a strong external reference point for conversational table-analysis UX, planning, multi-table orchestration, memory, and skill-learning patterns
 
 ## Use this skill when the task involves
 

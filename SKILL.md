@@ -231,3 +231,4 @@ Read these only when needed:
 - `references/output-patterns.md` for response and presentation templates
 - `references/join-safety.md` when merge, join, or cross-table alignment safety matters
 - `references/metric-definition.md` when KPI definitions or derived metrics drive the answer
+- `references/related-projects.md` when external comparison points or product-pattern inspiration would help (for example, TabClaw)
