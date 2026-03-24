@@ -1,45 +1,70 @@
 ---
 name: table-analysis-pro
-description: Professional workflow for analyzing CSV, Excel, and DataFrame-style tabular data, and for reviewing or designing AI agents that operate on structured tables. Use when the task involves schema inspection, filtering, aggregation, sorting, merging, pivoting, multi-table comparison, anomaly checking, KPI calculation, or evaluating the data-processing flow of table-analysis systems.
+description: Professional workflow for (1) analyzing CSV, Excel, spreadsheet, and DataFrame-style tabular data, and (2) reviewing or designing AI agents and systems that operate on structured tables. Use when the task involves spreadsheet analysis, table reasoning, schema inspection, filtering, aggregation, KPI or metric definition, joins, pivots, cross-table comparison, anomaly checks, or evaluating a table-analysis workflow, data copilot, or table-agent product.
 ---
 
-Use this skill for two kinds of work:
-
-1. Analyze structured tables such as CSV, Excel, and DataFrame-like data.
-2. Review or design table-analysis agents, data copilots, or spreadsheet-oriented AI systems.
-
-Keep the workflow disciplined: inspect first, clarify if needed, plan when complexity warrants it, execute safely, then validate before concluding.
+Use this skill for either direct table analysis or for reviewing/designing table-analysis systems. Choose the lightest workflow that still produces a reliable answer.
 
 ## Core rules
 
 - Inspect schema before making claims.
-- Ask a clarification question when ambiguity would materially change the result.
-- Plan before executing multi-step, multi-table, or project-review tasks.
+- Ask a clarification question when ambiguity would materially change the meaning of the result.
+- Plan before executing multi-step, multi-table, KPI-heavy, or project-review tasks.
 - Prefer structured operations first; use code only when simpler operations are insufficient.
-- Check join keys, grain, and metric definitions before merging or comparing tables.
-- Report conclusions with supporting numbers.
-- End with a self-check: confirm the user request was answered and major assumptions were stated.
+- Do not join before confirming grain, keys, and duplication risk.
+- Do not compare metrics before confirming definition parity.
+- Separate observed results from interpretation.
+- Report conclusions with supporting numbers and explicit caveats.
+- End with a self-check: confirm the request was answered and major assumptions were stated.
+
+## Decision gates
+
+Use these gates to decide what to do next:
+
+### Clarify first when
+
+- the requested metric could use multiple valid definitions
+- the grain of the answer is unclear
+- time range, grouping level, or comparison target is underspecified
+- multiple tables could be joined in more than one plausible way
+- the user may want exploration, explanation, or direct execution and this changes the workflow
+
+### Make an explicit plan when
+
+- the task spans multiple tables
+- the task requires multiple transformations
+- KPI logic or business rules matter
+- the task is a system/project review rather than direct analysis
+- ambiguity is substantial enough that the approach itself needs visibility
+
+### Avoid strong conclusions when
+
+- comparability across tables is weak
+- join safety has not been established
+- metric definitions are inconsistent or unknown
+- key fields were not sampled or validated
+- the available data supports only a partial answer
 
 ## Fast task classification
 
 Classify the request early:
 
-- Single-table exploration
-- Filtering / lookup
-- Aggregation / KPI summary
-- Derived-metric calculation
-- Pivot / crosstab analysis
-- Multi-table merge
-- Multi-table comparison
-- Data-quality / anomaly inspection
-- Project review or workflow design
+- single-table exploration
+- filtering / lookup
+- aggregation / KPI summary
+- derived-metric calculation
+- pivot / crosstab analysis
+- multi-table merge
+- multi-table comparison
+- data-quality / anomaly inspection
+- project review or workflow design
 
 Choose the lightest workflow that still produces a reliable answer.
 
 ## Workflow for table analysis
 
-### 1. Understand the request
-Extract the minimum needed to proceed:
+### 1. Frame the task
+Extract only what is needed to proceed:
 
 - target tables/files
 - desired output
@@ -47,9 +72,9 @@ Extract the minimum needed to proceed:
 - grouping level or time range
 - whether the user wants exploration, explanation, or execution
 
-Ask a concise clarification question if any missing detail would materially change the answer.
+Clarify if a missing detail would materially change the answer.
 
-### 2. Inspect before analysis
+### 2. Inspect before transforming
 Inspect enough of each table to establish:
 
 - row and column counts
@@ -62,14 +87,8 @@ Inspect enough of each table to establish:
 
 Do not infer semantics from column names alone when sample values can disambiguate them.
 
-### 3. Make a short plan when needed
-Make an explicit plan when the task involves:
-
-- multiple tables
-- multiple transformations
-- custom KPIs or business logic
-- substantial ambiguity
-- project review rather than direct computation
+### 3. Plan when complexity warrants it
+For multi-step, multi-table, or KPI-heavy tasks, make a short explicit plan.
 
 A good plan usually follows:
 - inspect
@@ -93,32 +112,7 @@ Typical order:
 
 Prefer aggregation-first over merge-first when it reduces duplication risk.
 
-### 5. Handle multi-table work carefully
-Before joining or comparing tables, check:
-
-- same grain or different grain?
-- unique key on either side?
-- should one side be aggregated first?
-- are time ranges aligned?
-- are the metrics defined the same way?
-
-If comparability is weak, state that clearly before giving strong conclusions.
-
-### 6. Use code only when justified
-Use code when:
-
-- the transformation is too custom for direct table operations
-- several operations are clearer in code
-- pattern detection or bespoke logic is required
-- built-in operations cannot express the logic safely
-
-When using code:
-- keep it narrow
-- make assumptions explicit
-- favor readability over cleverness
-- preserve traceable reasoning when it matters
-
-### 7. Validate before concluding
+### 5. Validate before concluding
 Check:
 
 - totals, counts, and row changes are plausible
@@ -127,108 +121,83 @@ Check:
 - the final answer covers the original request
 - caveats and assumptions are stated
 
-### 8. Present results cleanly
+### 6. Present results cleanly
 Default structure:
 
-- task understanding
+- task framing
 - method summary
-- key findings
-- supporting numbers
+- findings
+- supporting evidence
 - caveats / uncertainty
-- next step (optional)
+- interpretation or next step (optional)
 
-Compress this for simple tasks. Keep it explicit for complex tasks.
+Keep simple tasks concise. Keep complex tasks explicit.
+
+## Code use
+
+Use code when:
+
+- the transformation is too custom for direct table operations
+- several operations are clearer in code
+- pattern detection or bespoke logic is required
+- built-in operations cannot express the logic safely
+
+When using code:
+
+- keep it narrow
+- make assumptions explicit
+- favor readability over cleverness
+- use code as an execution aid, not a substitute for schema, grain, or metric reasoning
+- preserve traceable reasoning when it matters
 
 ## Workflow for reviewing a table-analysis project
 
-When studying a project rather than analyzing a dataset, review it along these dimensions:
+When reviewing a table-analysis project, assess it across these dimensions:
 
-### 1. Input layer
-Check:
-- supported file formats
-- upload/loading flow
-- in-memory vs persisted state
-- metadata preservation
+- product goal and target workflow
+- ingestion and schema understanding
+- clarification and planning behavior
+- execution model and traceability
+- multi-table reasoning and synthesis
+- memory/context handling
+- extensibility and reuse
+- engineering maturity and safety
+- output quality and uncertainty handling
 
-### 2. Schema understanding
-Check:
-- whether the system inspects columns, types, samples, and missingness
-- whether schema discovery is explicit or implicit
-- whether it distinguishes numeric / categorical / temporal fields
-- whether it identifies grain and join candidates
+Separate:
 
-### 3. Intent handling
-Check:
-- clarification logic
-- plan generation
-- support for multi-step tasks
-- whether the system avoids premature execution
-
-### 4. Execution model
-Check:
-- tool-based execution vs freeform code
-- available table operations
-- traceability of tool or code execution
-- iterative loop design
-- reflection / self-check pass
-
-### 5. Multi-table reasoning
-Check:
-- join support
-- comparison support
-- per-table isolation before synthesis
-- synthesis / aggregator design
-- uncertainty handling
-
-### 6. Memory and context
-Check:
-- persistent preferences or facts
-- context compaction / summarization
-- session isolation
-- relevance filtering
-
-### 7. Extensibility
-Check:
-- custom skills/plugins
-- learned workflows
-- reusable tool abstractions
-- sandbox boundaries
-
-### 8. Engineering and safety
-Check:
-- state isolation
-- multi-user readiness
-- sandbox quality
-- observability
-- suitability for prototype vs production
-
-For project reviews, separate:
 - product idea quality
 - workflow design quality
 - codebase maturity
 - production readiness
 
-## Common failure modes
+Use `references/project-review-rubric.md` when a structured or deeper review is needed.
+
+## Gotchas
+
+Build up this section over time from real failure points.
 
 Avoid these mistakes:
 
 - treating column names as ground truth without sampling values
-- merging before confirming grain and key behavior
-- comparing metrics with different definitions
+- joining before confirming grain, key behavior, and duplication risk
+- comparing metrics with different definitions or time windows
 - treating null as zero without justification
 - overgeneralizing from sample rows
+- mixing observed results with interpretation
 - returning conclusions without numeric support
 - skipping planning on complex tasks
 - reviewing a demo as if it were production-ready
 - defaulting to code when direct table operations are enough
+- silently choosing a statistical or business definition the user did not confirm
 
 ## Reference files
 
 Read these only when needed:
 
 - `references/workflow-patterns.md` for reusable analysis and review templates
-- `references/project-review-rubric.md` for a structured system-review checklist
+- `references/project-review-rubric.md` for structured system reviews
 - `references/output-patterns.md` for response and presentation templates
-- `references/join-safety.md` when merge, join, or cross-table alignment safety matters
-- `references/metric-definition.md` when KPI definitions or derived metrics drive the answer
-- `references/related-projects.md` when external comparison points or product-pattern inspiration would help (for example, TabClaw)
+- `references/join-safety.md` for multi-table merge, join, or alignment safety
+- `references/metric-definition.md` for KPI-heavy tasks or derived-metric reasoning
+- `references/related-projects.md` for external comparison points or product-pattern inspiration (for example, TabClaw)
