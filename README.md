@@ -1,6 +1,12 @@
 # table-analysis-pro
 
-A reusable AgentSkill for professional tabular-data analysis and for reviewing table-analysis agent projects.
+A reusable AgentSkill for professional tabular-data analysis, safe multi-table workflows, and table-analysis project review.
+
+## Why this exists
+
+Many table-analysis tasks fail not because of syntax, but because of weak workflow: wrong joins, unclear metric definitions, missing grain checks, and overconfident conclusions.
+
+`table-analysis-pro` is designed to make those failures less likely by enforcing a more disciplined analysis process.
 
 ## What it does
 
@@ -12,6 +18,23 @@ A reusable AgentSkill for professional tabular-data analysis and for reviewing t
 - extracting reusable patterns from table-analysis systems
 
 It focuses on workflow, judgment, and output quality rather than teaching pandas syntax.
+
+## Typical use cases
+
+Use this skill when the task involves:
+
+- analyzing CSV / Excel / DataFrame-style data
+- checking joins before merging tables
+- defining KPIs before computing results
+- reviewing a table-analysis agent, workflow, or project
+- presenting findings with evidence, caveats, and next steps
+
+## Example prompts
+
+- Analyze this CSV and summarize the main KPIs.
+- Compare these two tables and identify anomalies.
+- Review this table-analysis agent design for join-safety and metric-definition risks.
+- Help me validate whether this metric is defined correctly before I compute it.
 
 ## Repository structure
 
@@ -45,6 +68,10 @@ It focuses on workflow, judgment, and output quality rather than teaching pandas
 - prefer structured operations before custom code
 - present results with evidence and caveats
 
+## Packaging
+
+A distributable `.skill` package is included in `dist/` for release builds.
+
 ## Release status
 
-`v0.1.0` candidate — documentation-first, publishable draft.
+`v0.1.0` — initial publishable draft.
