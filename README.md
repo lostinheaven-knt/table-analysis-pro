@@ -36,6 +36,23 @@ Use this skill when the task involves:
 - Review this table-analysis agent design for join-safety and metric-definition risks.
 - Help me validate whether this metric is defined correctly before I compute it.
 
+## Quick start
+
+### Get the packaged skill
+
+Download the latest `.skill` artifact from the GitHub Release page:
+
+- [v0.1.0 release](https://github.com/lostinheaven-knt/table-analysis-pro/releases/tag/v0.1.0)
+- [Direct download: table-analysis-pro-v0.1.0.skill](https://github.com/lostinheaven-knt/table-analysis-pro/releases/download/v0.1.0/table-analysis-pro-v0.1.0.skill)
+
+### Use the repository directly
+
+If you want to inspect or adapt the skill before packaging, start with:
+
+- `SKILL.md` for the core workflow
+- `references/` for reusable analysis and review guidance
+- `PUBLISHING.md` for release and packaging notes
+
 ## Repository structure
 
 - `SKILL.md` — core skill instructions
